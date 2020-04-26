@@ -29,8 +29,6 @@ class ContainerSettings(CommunityBaseSettings):
     # Cookies
     SESSION_COOKIE_DOMAIN = PRODUCTION_DOMAIN
 
-    AUTHENTICATION_BACKENDS = CommunityBaseSettings.AUTHENTICATION_BACKENDS + ('guardian.backends.ObjectPermissionBackend', )
-
     # Elasticsearch
     if os.getenv('RTD_HAS_ELASTICSEARCH', 'false').lower() == 'true':
         @property
@@ -113,6 +111,19 @@ class ContainerSettings(CommunityBaseSettings):
 
     USE_PROMOS = False
     DO_NOT_TRACK_ENABLED = True
+
+#    DOCKER_IMAGE_SETTINGS = CommunityBaseSettings.DOCKER_IMAGE_SETTINGS
+#    DOCKER_IMAGE_SETTINGS.update({
+#        'readthedocs/build:latest' : {
+#            'python' : {
+#                'supported_versions': [2, 2.7, 3, 3.5, 3.6],
+#                'default_version' : {
+#                    2 : 2.7,
+#                    3 : 3.6,
+#                },
+#            }
+#        },
+#    })
 
 
 ContainerSettings.load_settings(__name__)

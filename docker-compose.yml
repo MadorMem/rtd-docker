@@ -3,7 +3,7 @@ services:
   database:
     image: postgres:10-alpine
     volumes:
-      - ./pgsql:/var/lib/postgresql/data
+      - pgsql:/var/lib/postgresql/data
     expose:
       - "5432"
     env_file:
@@ -15,9 +15,9 @@ services:
 
   elasticsearch:
     build: ./elasticsearch-icu
-    image: elasticsearch-icu:1.7-alpine
+    image: elasticsearch-icu
     volumes:
-      - ./es:/usr/share/elasticsearch/data
+      - es:/usr/share/elasticsearch/data
     expose:
       - "9200"
     environment:
@@ -39,6 +39,14 @@ services:
       - elasticsearch
       - redis
     volumes:
-      - ./user_builds:/app/user_builds
+      - user_builds:/app/user_builds
     env_file:
       - ${RTD_ENV_FILE:-example.env}
+
+volumes:
+  pgsql:
+    driver: local
+  es:
+    driver: local
+  user_builds:
+    driver: local

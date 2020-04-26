@@ -44,13 +44,4 @@ server {
     location /private_web_root {
         internal;
     }
-
-
-    # Serve statics
-    location /static {
-        root /app/media;
-    }
-
-    location /media {
-    }
 }

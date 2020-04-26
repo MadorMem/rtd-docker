@@ -1,0 +1,20 @@
+diff --git a/readthedocs/doc_builder/python_environments.py b/readthedocs/doc_builder/python_environments.py
+index 9a2302c41..83333ee64 100644
+--- a/readthedocs/doc_builder/python_environments.py
++++ b/readthedocs/doc_builder/python_environments.py
+@@ -239,15 +239,6 @@ class Virtualenv(PythonEnvironment):
+             self.project.pip_cache_path,
+         ]
+
+-        # Install latest pip first,
+-        # so it is used when installing the other requirements.
+-        cmd = pip_install_cmd + ['pip']
+-        self.build_env.run(
+-            *cmd,
+-            bin_path=self.venv_bin(),
+-            cwd=self.checkout_path
+-        )
+-
+         requirements = [
+             'Pygments==2.2.0',
+             # Assume semver for setuptools version, support up to next backwards
