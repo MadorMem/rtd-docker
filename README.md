@@ -121,6 +121,8 @@ You can enable/disable Redis usage as a cache via `RTD_USE_REDIS_FOR_CACHE` env 
 
 ______
 
+*Credits to [floross/docker-readthedocs](https://github.com/floross/docker-readthedocs)*
+
 *Credits to [moul/docker-readthedocs](https://github.com/moul/docker-readthedocs)*
 
 *Credits to [vassilvk/readthedocs-docker](https://github.com/vassilvk/readthedocs-docker)*
