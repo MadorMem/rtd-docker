@@ -14,6 +14,14 @@ with many goodies.
   * Correctly handles alternative domain names for projects
   * Want more? Open an issue or submit a pull request!
 
+## Versions
+
+- RTD: 2.8.5
+- Python: 2.7. Used for:
+    - Running the site
+    - The default version with which to run sphinx
+- ElasticSearch: 1.7.6 (with analysis-icu plugin)
+
 ## Installation
 
 ### Compose
