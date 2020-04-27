@@ -40,6 +40,8 @@ services:
       - redis
     volumes:
       - user_builds:/app/user_builds
+      - public_web_root:/app/public_web_root
+      - media:/app/media
     env_file:
       - ${RTD_ENV_FILE:-example.env}
 
@@ -49,4 +51,8 @@ volumes:
   es:
     driver: local
   user_builds:
+    driver: local
+  public_web_root:
+    driver: local
+  media:
     driver: local

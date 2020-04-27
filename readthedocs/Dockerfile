@@ -69,6 +69,6 @@ RUN ln -s $APPDIR/manage.py $APPDIR/readthedocs/manage.py && \
 
 # Docker config
 EXPOSE 80
-VOLUME [ "/app/user_builds" ]
+VOLUME [ "/app/user_builds", "/app/public_web_root", "/app/media" ]
 
 CMD [ "supervisord", "-c", "/etc/supervisord.conf", "-n" ]
