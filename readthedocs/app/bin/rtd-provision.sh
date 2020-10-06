@@ -15,11 +15,6 @@ if [ ! -e ${APPDIR}/rtd-provisioned ]; then
     echo "Creating users..."
     $PYTHON manage.py shell < ../bin/django-rtd-create-users.py || true
 
-    if [ "$RTD_HAS_ELASTICSEARCH" == "true" ]; then
-        echo "Provisioning Elasticsearch..."
-        $PYTHON manage.py provision_elasticsearch
-    fi
-
     touch ${APPDIR}/rtd-provisioned
 fi
 

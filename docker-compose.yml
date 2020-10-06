@@ -13,7 +13,7 @@ services:
       - POSTGRES_USER=${DB_USER:-rtd}
       - POSTGRES_PASSWORD=${DB_PASS:-rtd}
 
-  elasticsearch:
+  search:
     build: ./elasticsearch-icu
     image: elasticsearch-icu
     volumes:
@@ -36,7 +36,7 @@ services:
       - "80:80"
     depends_on:
       - database
-      - elasticsearch
+      - search
       - redis
     volumes:
       - user_builds:/app/user_builds

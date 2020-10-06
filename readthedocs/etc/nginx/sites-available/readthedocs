@@ -29,6 +29,13 @@ server {
         proxy_pass http://readthedocs_server;
     }
 
+    ## [Experimental] Serve media files
+    location /media {
+        alias /app/media;
+    }
+
+
+
     # Serve public docs by nginx from public_web_root
     location /docs {
         alias /app/public_web_root;

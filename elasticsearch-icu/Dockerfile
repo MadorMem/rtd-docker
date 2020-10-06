@@ -1,3 +1,3 @@
-FROM elasticsearch:1.7.6-alpine
+FROM elasticsearch:6.8.12
 
-RUN /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-analysis-icu/2.7.0
+RUN bin/elasticsearch-plugin install analysis-icu

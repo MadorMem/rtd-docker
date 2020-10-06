@@ -1,4 +1,4 @@
-FROM python:2.7-buster
+FROM python:3.6-buster
 
 ENV DEBIAN_FRONTEND=noninteractive \
     APPDIR=/app \
@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PATH=/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     PYTHON=/venv/bin/python \
     PIP="/venv/bin/pip --disable-pip-version-check" \
-    RTD_REF=2.8.5
+    RTD_REF=5.5.1
 
 
 # Set locale to UTF-8
@@ -22,10 +22,11 @@ RUN apt-get -qq update && \
 RUN apt-get -qq update && \
     apt-get install -qq --no-install-recommends \
         procps libpq-dev \
-        build-essential python3 git libevent-dev \
+        build-essential git libevent-dev \
         libxml2-dev libxslt1-dev gettext texlive texlive-latex-extra \
         wget \
-        nginx && \
+        nginx \
+        latexmk && \
     rm -rf /var/lib/apt/lists/*
 
 # Install test dependencies
